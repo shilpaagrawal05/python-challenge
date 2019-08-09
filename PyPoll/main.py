@@ -37,7 +37,7 @@ with open(csvpath, newline ="") as csvfile:
             if candidate_vote == candidate:
                 candidate_totvotes += 1
                 percent_votes = (candidate_totvotes/totalvotes) * 100
-                percent_votes = round(percent_votes,3)
+                percent_votes = round(percent_votes,2)
         
         print(f"{candidate_vote}: {percent_votes}% ({candidate_totvotes})")
 
@@ -69,7 +69,7 @@ with open(csvpath, newline ="") as csvfile:
         text.write("Total votes : %d \n" % totalvotes)
         text.write("------------------------------ \n")
         for i in range(len(candidates_got_votes)):
-            text.write("%s  %f  %d \n" % (candidates_got_votes[i],percentvotes[i],votes[i]))
+            text.write("%s%s  %.2f%s %s%d%s \n" % (candidates_got_votes[i],":",percentvotes[i],"%","(",votes[i],")"))
         text.write("------------------------------ \n")
         text.write("Winner : %s \n" % winner_name)
         text.write("------------------------------ \n")
